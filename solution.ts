@@ -57,4 +57,29 @@ console.log(person1.getDetails());
 const person2 = new Person('Alice', 25);
 console.log(person2.getDetails());
 
+ // problem number - 4
+
+interface Books {
+    title: string;
+    rating: number
+};
+
+ const filterByRating = (books: Books[]): Books[] =>{
+
+    const retingUpperFour = books.filter((book) =>{
+        if(book.rating >= 4){
+            return book;
+        }
+    });
  
+    return retingUpperFour;
+ };
+
+
+ const books = [
+  { title: 'Book A', rating: 4.5 },
+  { title: 'Book B', rating: 3.2 },
+  { title: 'Book C', rating: 5.0 },
+];
+
+console.log(filterByRating(books));
