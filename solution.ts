@@ -19,11 +19,11 @@ console.log(formatValue(true));
 
 // problem number - 2
 
-const getLength = (value: string | any[]): number =>{
+const getLength = (value: string | any[]): number => {
 
-    if(typeof value === "string"){
+    if (typeof value === "string") {
         return value.length
-    }else if(Array.isArray(value)){
+    } else if (Array.isArray(value)) {
         return value.length
     }
 
@@ -39,7 +39,7 @@ class Person {
     name: string;
     age: number;
 
-    constructor(name: string, age: number){
+    constructor(name: string, age: number) {
         this.name = name;
         this.age = age;
     };
@@ -57,29 +57,29 @@ console.log(person1.getDetails());
 const person2 = new Person('Alice', 25);
 console.log(person2.getDetails());
 
- // problem number - 4
+// problem number - 4
 
 interface Books {
     title: string;
     rating: number
 };
 
- const filterByRating = (books: Books[]): Books[] =>{
+const filterByRating = (books: Books[]): Books[] => {
 
-    const retingUpperFour = books.filter((book) =>{
-        if(book.rating >= 4){
+    const retingUpperFour = books.filter((book) => {
+        if (book.rating >= 4) {
             return book;
         }
     });
- 
+
     return retingUpperFour;
- };
+};
 
 
- const books = [
-  { title: 'Book A', rating: 4.5 },
-  { title: 'Book B', rating: 3.2 },
-  { title: 'Book C', rating: 5.0 },
+const books = [
+    { title: 'Book A', rating: 4.5 },
+    { title: 'Book B', rating: 3.2 },
+    { title: 'Book C', rating: 5.0 },
 ];
 
 console.log(filterByRating(books));
@@ -93,9 +93,9 @@ interface Users {
     isActive: boolean;
 }
 
-const filterActiveUsers = (users: Users[]): Users[] =>{
-    const activeUsers = users.filter((user)=>{
-        if(user.isActive){
+const filterActiveUsers = (users: Users[]): Users[] => {
+    const activeUsers = users.filter((user) => {
+        if (user.isActive) {
             return user
         }
     });
@@ -104,9 +104,31 @@ const filterActiveUsers = (users: Users[]): Users[] =>{
 };
 
 const users = [
-  { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
-  { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
-  { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
+    { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
+    { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
+    { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
 
 console.log(filterActiveUsers(users));
+
+// problem number - 6
+
+interface Book {
+    title: string;
+    author: string
+    publishedYear: number
+    isAvailable: boolean
+};
+
+const printBookDetails = (book: Book) => {
+    console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable ? "Yes" : "No"}`);
+};
+
+const myBook: Book = {
+    title: 'The Great Gatsby',
+    author: 'F. Scott Fitzgerald',
+    publishedYear: 1925,
+    isAvailable: true,
+};
+
+printBookDetails(myBook);
