@@ -132,3 +132,42 @@ const myBook: Book = {
 };
 
 printBookDetails(myBook);
+
+// problem number - 7
+
+const getUniqueValues = <T extends string | number>(array1: T[],array2: T[] ):T[]=>{
+
+    let margeArray: T[] = [];
+    let uniqueNumber: T[] = [];
+
+    for(let i = 0; i <array1.length; i++){
+        margeArray[margeArray.length] = array1[i];
+    };
+
+    for(let i = 0; i <array2.length; i++){
+        margeArray[margeArray.length] = array2[i]
+    };
+
+     for(let i = 0; i <margeArray.length; i++){
+
+        let checkUnique = false;
+
+        for(let j = 0; j < uniqueNumber.length; j++){
+            if(margeArray[i] === uniqueNumber[j]){
+                checkUnique = true;
+                break;
+            }
+        }
+
+        if(!checkUnique){
+            uniqueNumber[uniqueNumber.length] = margeArray[i];
+        }
+     };
+
+        return uniqueNumber;
+     
+};
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+console.log(getUniqueValues(array1, array2));
