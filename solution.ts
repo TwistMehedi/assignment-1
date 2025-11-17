@@ -8,15 +8,12 @@ const formatValue = <T extends string | number | boolean>(value: T): string | nu
         return value * 10;
     } else if (typeof value === "boolean") {
         return !value;
+    }else{
+        throw new Error("Rong type provided");
     };
 
     return value;
 };
-
-console.log(formatValue('hello'));
-console.log(formatValue(5));
-console.log(formatValue(true));
-
 // problem number - 2
 
 const getLength = (value: string | any[]): number => {
@@ -30,9 +27,6 @@ const getLength = (value: string | any[]): number => {
     return 0;
 };
 
-console.log(getLength('typescript'));
-console.log(getLength([10, 20, 30, 40]));
-
 // problem number - 3
 
 class Person {
@@ -45,18 +39,15 @@ class Person {
     };
 
     getDetails(): string {
-        const personDetails = `Name: ${this.name}, Age: ${this.age}`;
+        const personDetails = `'Name: ${this.name}, Age: ${this.age}'`;
         return personDetails;
     }
 
 };
 
 const person1 = new Person('John Doe', 30);
-console.log(person1.getDetails());
-
 const person2 = new Person('Alice', 25);
-console.log(person2.getDetails());
-
+ 
 // problem number - 4
 
 interface Books {
@@ -75,14 +66,11 @@ const filterByRating = (books: Books[]): Books[] => {
     return retingUpperFour;
 };
 
-
 const books = [
     { title: 'Book A', rating: 4.5 },
     { title: 'Book B', rating: 3.2 },
     { title: 'Book C', rating: 5.0 },
 ];
-
-console.log(filterByRating(books));
 
 // problem number - 5
 
@@ -108,9 +96,7 @@ const users = [
     { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
     { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
-
-console.log(filterActiveUsers(users));
-
+ 
 // problem number - 6
 
 interface Book {
@@ -131,43 +117,77 @@ const myBook: Book = {
     isAvailable: true,
 };
 
-printBookDetails(myBook);
-
 // problem number - 7
 
-const getUniqueValues = <T extends string | number>(array1: T[],array2: T[] ):T[]=>{
+const getUniqueValues = <T extends string | number>(array1: T[], array2: T[]): T[] => {
 
     let margeArray: T[] = [];
     let uniqueNumber: T[] = [];
 
-    for(let i = 0; i <array1.length; i++){
+    for (let i = 0; i < array1.length; i++) {
         margeArray[margeArray.length] = array1[i];
     };
 
-    for(let i = 0; i <array2.length; i++){
+    for (let i = 0; i < array2.length; i++) {
         margeArray[margeArray.length] = array2[i]
     };
 
-     for(let i = 0; i <margeArray.length; i++){
+    for (let i = 0; i < margeArray.length; i++) {
 
         let checkUnique = false;
 
-        for(let j = 0; j < uniqueNumber.length; j++){
-            if(margeArray[i] === uniqueNumber[j]){
+        for (let j = 0; j < uniqueNumber.length; j++) {
+            if (margeArray[i] === uniqueNumber[j]) {
                 checkUnique = true;
                 break;
             }
         }
 
-        if(!checkUnique){
+        if (!checkUnique) {
             uniqueNumber[uniqueNumber.length] = margeArray[i];
         }
-     };
+    };
 
-        return uniqueNumber;
-     
+    return uniqueNumber;
+
 };
 
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
-console.log(getUniqueValues(array1, array2));
+ 
+// problem number - 8
+
+interface Product {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+};
+
+const calculateTotalPrice = (products: Product[]): number => {
+
+    const productPrice = products.map((product) => {
+        let totalPrice = product.price * product.quantity;
+ 
+        if(product.discount){
+            const discountAmount = (totalPrice * product.discount!) / 100;
+             totalPrice -= discountAmount;
+        };
+
+         return totalPrice;
+    });
+
+    const finalPrice = productPrice.reduce((accumulator, currentValue) => {
+        const total = accumulator + currentValue;
+        return total;
+    }, 0);
+
+    return finalPrice;
+
+};
+
+const products = [
+    { name: 'Pen', price: 10, quantity: 2 },
+    { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+    { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
