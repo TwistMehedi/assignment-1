@@ -9,12 +9,10 @@ const formatValue = <T extends string | number | boolean>(value: T): string | nu
     } else if (typeof value === "boolean") {
         return !value;
     }else{
-        throw new Error("Rong type provided");
-    };
-
-    return value;
+      throw new Error('Rong type');
+    }
+    
 };
-// problem number - 2
 
 const getLength = (value: string | any[]): number => {
 
