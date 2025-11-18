@@ -57,8 +57,6 @@ const filterByRating = (books: Books[]): Books[] => {
     const retingUpperFour = books.filter((book) => {
         if (book.rating >= 4) {
             return book;
-        }else{
-            throw new Error("Ratting not found your requirement")
         }
     });
 
@@ -83,8 +81,6 @@ const filterActiveUsers = (users: Users[]): Users[] => {
     const activeUsers = users.filter((user) => {
         if (user.isActive) {
             return user
-        }else{
-            throw new Error("Not have active user now try tot latter")
         }
     });
 
@@ -96,6 +92,7 @@ const users = [
     { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
     { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
+
  
 
 interface Book {
