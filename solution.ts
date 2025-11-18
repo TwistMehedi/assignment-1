@@ -1,4 +1,4 @@
-// problem number - 1
+
 
 const formatValue = <T extends string | number | boolean>(value: T): string | number | boolean => {
 
@@ -14,6 +14,7 @@ const formatValue = <T extends string | number | boolean>(value: T): string | nu
     
 };
 
+
 const getLength = (value: string | any[]): number => {
 
     if (typeof value === "string") {
@@ -25,7 +26,6 @@ const getLength = (value: string | any[]): number => {
     return 0;
 };
 
-// problem number - 3
 
 class Person {
     name: string;
@@ -46,7 +46,6 @@ class Person {
 const person1 = new Person('John Doe', 30);
 const person2 = new Person('Alice', 25);
  
-// problem number - 4
 
 interface Books {
     title: string;
@@ -69,8 +68,8 @@ const books = [
     { title: 'Book B', rating: 3.2 },
     { title: 'Book C', rating: 5.0 },
 ];
+ 
 
-// problem number - 5
 
 interface Users {
     id: number;
@@ -95,7 +94,6 @@ const users = [
     { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
  
-// problem number - 6
 
 interface Book {
     title: string;
@@ -115,7 +113,6 @@ const myBook: Book = {
     isAvailable: true,
 };
 
-// problem number - 7
 
 const getUniqueValues = <T extends string | number>(array1: T[], array2: T[]): T[] => {
 
@@ -153,7 +150,6 @@ const getUniqueValues = <T extends string | number>(array1: T[], array2: T[]): T
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
  
-// problem number - 8
 
 interface Product {
     name: string;
@@ -183,6 +179,7 @@ const calculateTotalPrice = (products: Product[]): number => {
     return finalPrice;
 
 };
+
 
 const products = [
     { name: 'Pen', price: 10, quantity: 2 },
