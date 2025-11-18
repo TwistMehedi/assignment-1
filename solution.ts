@@ -9,23 +9,23 @@ const formatValue = <T extends string | number | boolean>(value: T): string | nu
     } else if (typeof value === "boolean") {
         return !value;
     }else{
-      throw new Error('Rong type');
+      throw new Error('Invalid type');
     }
     
 };
 
 
-const getLength = (value: string | any[]): number => {
+const getLength = (value: string | any[]) => {
 
     if (typeof value === "string") {
         return value.length
     } else if (Array.isArray(value)) {
         return value.length
+    }else{
+        throw new Error('Invalid type')
     }
-
-    return 0;
+    
 };
-
 
 class Person {
     name: string;
@@ -57,6 +57,8 @@ const filterByRating = (books: Books[]): Books[] => {
     const retingUpperFour = books.filter((book) => {
         if (book.rating >= 4) {
             return book;
+        }else{
+            throw new Error("Ratting not found your requirement")
         }
     });
 
@@ -70,7 +72,6 @@ const books = [
 ];
  
 
-
 interface Users {
     id: number;
     name: string;
@@ -82,6 +83,8 @@ const filterActiveUsers = (users: Users[]): Users[] => {
     const activeUsers = users.filter((user) => {
         if (user.isActive) {
             return user
+        }else{
+            throw new Error("Not have active user now try tot latter")
         }
     });
 
@@ -103,6 +106,7 @@ interface Book {
 };
 
 const printBookDetails = (book: Book) => {
+
     console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable ? "Yes" : "No"}`);
 };
 
@@ -113,7 +117,7 @@ const myBook: Book = {
     isAvailable: true,
 };
 
-
+ 
 const getUniqueValues = <T extends string | number>(array1: T[], array2: T[]): T[] => {
 
     let margeArray: T[] = [];
